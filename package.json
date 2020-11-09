@@ -1,6 +1,6 @@
 {
     "name": "vsechart",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "simple wrap echart to vue",
     "main": "dist/vsechart.js",
     "private": false,
@@ -41,5 +41,9 @@
     "files": [
         "dist",
         "src"
-    ]
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/krealseu/vsechart"
+    }
 }

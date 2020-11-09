@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import VsEchart from "./components/VsEchart.vue"
+import VsEchart from "./components/VsEchart.vue";
 
 export default {
-  components:{VsEchart},
-    data: function () {
+  components: { VsEchart },
+  data: function () {
     return {
       //option的数据格式和Echart.js一致
-      option:{
+      option: {
         title: {
           text: "ECharts",
         },
@@ -25,17 +25,15 @@ export default {
         series: [
           {
             name: "销量",
-            type: "bar", 
+            type: "bar",
             data: [15, 20, 36, 10, 10, 20],
           },
         ],
-      }
+      },
     };
   },
- 
 };
 </script>
 
 <style>
-
 </style>
