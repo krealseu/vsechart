@@ -2,16 +2,17 @@ var path = require('path')
 var webpack = require('webpack')
 const NODE_ENV = process.env.NODE_ENV;
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
-        filename: 'vsechart.js',
-        library: 'vsechart',
-        libraryTarget: 'umd',
-        umdNamedDefine: true
+        // publicPath: '/dist/',
+        // filename: 'vsechart.js',
+        // library: 'vsechart',
+        // libraryTarget: 'umd',
+        // umdNamedDefine: true
     },
     module: {
         rules: [{
@@ -24,5 +25,11 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'test',
+            filename: 'index.html',
+            //  复制模板内容并引入资源
+            template: './src/index.html'
+        })
     ],
 }
