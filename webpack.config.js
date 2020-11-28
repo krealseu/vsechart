@@ -24,7 +24,7 @@ module.exports = {
             title: 'test',
             filename: 'index.html',
             //  复制模板内容并引入资源
-            template: './src/index.html'
+            template: './public/index.html'
         })
     ],
 }

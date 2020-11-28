@@ -1,20 +1,33 @@
 # VsEchart
-Echart.js的简单封装
+Echarts.js的简单封装
+
+[预览](https://krealseu.github.io/vsechart/dist/index.html)
+
 # 特点
 + 视图大小响应式变化
 + 数据响应刷新
-# 使用
-```
-<vs-echart style="height:100px" :option="option"></vs-echart>
+# 安装
 
+`npm install vsechart echarts`
+
+# 使用
+```vue
+<template>
+  <div id="app">
+    <vs-echart style="height:40vh" :option="option"></vs-echart>
+    <vs-echart style="height:40vh" :option="option" theme="dark" svg></vs-echart>
+  </div>
+</template>
 
 <script>
-import VsEchart from "vsechart";  
+import VsEchart from "./components/VsEchart.vue";
+
 export default {
+  components: { VsEchart },
   data: function () {
     return {
       //option的数据格式和Echart.js一致
-      option:{
+      option: {
         title: {
           text: "ECharts",
         },
@@ -26,14 +39,13 @@ export default {
         series: [
           {
             name: "销量",
-            type: "bar", 
-            data: [5, 20, 36, 10, 10, 20],
+            type: "bar",
+            data: [15, 20, 36, 10, 10, 20],
           },
         ],
-      }
+      },
     };
   },
-  components: {VsEchart},
 };
 </script>
 ```
