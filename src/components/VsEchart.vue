@@ -1,9 +1,9 @@
 <template>
-  <div ref="mychart">
-  </div>
+  <div ref="mychart_dom"></div>
 </template>
 <script>
 import echarts from "echarts";
+import { onMounted, onBeforeUnmount, toRefs, ref, watch } from "vue";
 
 export default {
   name: "VsEchart",
@@ -13,55 +13,44 @@ export default {
     svg: Boolean,
     opts: Object,
   },
-  data() {
-    return {
-      myChart: null,
-      sizeObserve: null,
-      changeNum: 0,
-    };
-  },
-  created() {
-    this.sizeObserve = new ResizeObserver(() => {
-      this.changeNum++;
-      setTimeout(() => {
-        this.changeNum--;
-        if (this.changeNum <= 0) this.myChart.resize();
+  setup(props, context) {
+    const mychart_dom = ref(null);
+    let { option } = toRefs(props);
+    let timeId = 0;
+    let myChart = null;
+    let sizeObserve = new ResizeObserver(() => {
+      clearTimeout(timeId);
+      timeId = setTimeout(() => {
+        myChart.resize();
       }, 100);
     });
-  },
-  mounted() {
-    if (typeof this.theme === "undefined") {
-      var theme = null;
-    } else {
-      var theme = this.theme;
-    }
-    let renderer = this.svg ? "svg" : "canvas";
-    if (typeof this.opts === "undefined") {
-      var opts = { renderer };
-    } else {
-      var opts = this.opts;
-      opts.renderer = opts.renderer ? opts.renderer : renderer;
-    }
-    this.myChart = echarts.init(this.$refs.mychart, theme, opts);
-    if (this.option != undefined) this.myChart.setOption(this.option);
-    this.sizeObserve.observe(this.$refs.mychart);
-  },
-  methods: {
-    getInstance() {
-      return this.myChart;
-    },
-  },
-  watch: {
-    option: {
-      handler(option) {
-        this.myChart.setOption(option);
+    onMounted(() => {
+      let renderer = props.svg ? "svg" : "canvas";
+      if (typeof props.opts === "undefined") {
+        var opts = { renderer };
+      } else {
+        var opts = props.opts;
+        opts.renderer = opts.renderer ? opts.renderer : renderer;
+      }
+      myChart = echarts.init(mychart_dom.value, props.theme, opts);
+      myChart.setOption(option.value);
+      sizeObserve.observe(mychart_dom.value);
+    });
+    onBeforeUnmount(() => {
+      myChart.dispose();
+      sizeObserve.disconnect();
+    });
+    watch(
+      option,
+      (opt) => {
+        myChart.setOption(opt);
       },
-      deep: true,
-    },
-  },
-  beforeDestroy() {
-    this.myChart.dispose();
-    this.sizeObserve.disconnect();
+      { deep: true }
+    );
+    return {
+      mychart_dom,
+      getInstance: () => myChart,
+    };
   },
 };
 </script>

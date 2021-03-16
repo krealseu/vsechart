@@ -1,7 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 const NODE_ENV = process.env.NODE_ENV;
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const {
+    VueLoaderPlugin
+} = require('vue-loader-v16')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -12,7 +14,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader-v16'
         }, {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']

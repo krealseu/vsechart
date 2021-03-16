@@ -1,6 +1,8 @@
 const vue = require('rollup-plugin-vue')
 const buble = require('@rollup/plugin-buble')
-const { terser } = require('rollup-plugin-terser')
+const {
+    terser
+} = require('rollup-plugin-terser')
 const commonjs = require('@rollup/plugin-commonjs')
 
 export default {
@@ -19,11 +21,11 @@ export default {
         'echarts'
     ],
     plugins: [
-        commonjs(),
         vue({
             compileTemplate: true,
             css: true
         }),
+        commonjs(),
         buble(),
         terser({
             compress: {

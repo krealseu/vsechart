@@ -49,3 +49,7 @@ export default {
 };
 </script>
 ```
+
+# 更新
+version:1.0.3 使用vue2  
+version:1.0.4 升级vue3

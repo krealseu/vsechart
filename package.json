@@ -1,6 +1,6 @@
 {
     "name": "vsechart",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "simple wrap echarts to vue",
     "main": "dist/vsechart.js",
     "private": false,
@@ -16,24 +16,26 @@
     ],
     "peerDependencies": {
         "echarts": ">4.0.0",
-        "vue": ">2.0.0"
+        "vue": ">3.0.0"
     },
-    "dependencies": {},
     "devDependencies": {
-        "vue": "^2.5.11",
-        "vue-loader": "^15.9.5",
-        "vue-template-compiler": "^2.6.12",
         "@rollup/plugin-buble": "^0.21.3",
         "@rollup/plugin-commonjs": "^15.1.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
+        "@vue/compiler-sfc": "^3.0.7",
         "cross-env": "^7.0.2",
+        "css-loader": "^5.1.2",
         "echarts": "^4.1.0",
         "eslint": "^7.13.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-vue": "^7.1.0",
         "html-webpack-plugin": "^4.5.0",
         "rollup-plugin-terser": "^7.0.2",
-        "rollup-plugin-vue": "^5.1.9",
+        "rollup-plugin-vue": "^6.0.0",
+        "style-loader": "^2.0.0",
+        "vue": "3.0.7",
+        "vue-loader-v16": "^16.0.0-beta.5.4",
+        "vue-template-compiler": "^2.6.12",
         "webpack": "^5.4.0",
         "webpack-cli": "^4.2.0"
     },

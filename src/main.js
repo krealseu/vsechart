@@ -1,6 +1,7 @@
-import Vue from 'vue'
+import {
+    createApp
+} from 'vue'
 import App from './App.vue'
 
-const vm = new Vue({
-    render: h => h(App),
-}).$mount('#app')
+const vm = createApp(App)
+vm.mount("#app")

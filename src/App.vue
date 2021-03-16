@@ -32,6 +32,11 @@ export default {
       },
     };
   },
+  mounted(){
+    setInterval(()=>{
+      this.option.series[0].data[2] = Math.random()*10
+    },1000)
+  }
 };
 </script>
 
