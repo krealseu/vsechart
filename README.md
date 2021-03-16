@@ -20,7 +20,7 @@ Echarts.js的简单封装
 </template>
 
 <script>
-import VsEchart from "./components/VsEchart.vue";
+import VsEchart from "vsechart";
 
 export default {
   components: { VsEchart },
@@ -49,6 +49,10 @@ export default {
 };
 </script>
 ```
+# APi
+| Methods | Description | 
+| --- | --- |  
+|getInstance|return echarts instance|
 
 # 更新
 version:1.0.3 使用vue2  
