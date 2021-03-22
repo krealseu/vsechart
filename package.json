@@ -1,6 +1,6 @@
 {
     "name": "vsechart",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "simple wrap echarts to vue",
     "main": "dist/vsechart.js",
     "private": false,
@@ -15,8 +15,8 @@
         "echarts"
     ],
     "peerDependencies": {
-        "echarts": ">4.0.0",
-        "vue": ">3.0.0"
+        "echarts": "^5.0.0",
+        "vue": "^3.0.0"
     },
     "devDependencies": {
         "@rollup/plugin-buble": "^0.21.3",
@@ -25,7 +25,7 @@
         "@vue/compiler-sfc": "^3.0.7",
         "cross-env": "^7.0.2",
         "css-loader": "^5.1.2",
-        "echarts": "^4.1.0",
+        "echarts": "^5.0.0",
         "eslint": "^7.13.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-vue": "^7.1.0",
@@ -40,8 +40,8 @@
         "webpack-cli": "^4.2.0"
     },
     "files": [
-        "dist",
-        "src"
+        "dist/vsechart.js",
+        "src/"
     ],
     "repository": {
         "type": "git",

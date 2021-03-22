@@ -2,7 +2,7 @@
   <div ref="mychart_dom"></div>
 </template>
 <script>
-import echarts from "echarts";
+import * as echarts from 'echarts';
 import { onMounted, onBeforeUnmount, toRefs, ref, watch } from "vue";
 
 export default {
