@@ -55,5 +55,6 @@ export default {
 |getInstance|return echarts instance|
 
 # 更新
-version:1.0.3 使用vue2  
-version:1.0.4 升级vue3
+version:1.0.3 使用vue2  eschrts 4.x  
+version:1.0.4 升级vue3  
+version:1.0.5 升级eschrts 5.x
